@@ -37,26 +37,25 @@ function handleSubmit(event) {
 
 }
 let counter=0;
-let itemselect;
-let quant;
+// let itemselect;
+// let quant;
 
 // TODO: Add the selected item and quantity to the cart
 function addSelectedItemToCart() {
-// itemselect = CartItem.product;
-// console.log(itemselect);
-// quant = CartItem.quantity;cart.addItem(itemselect,quant);
+
   // TODO: suss out the item picked from the select list
   // TODO: get the quantity
     // TODO: using those, add one item to the Cart
-  let selectItem=document.getElementById('items')
+    
+    // let selOpVal=selectItem.options[selectItem.selectedIndex].value; console.log();
  
-  // let selOpVal=selectItem.options[selectItem.selectedIndex].value; console.log();
-  let selectionVal=selectItem.value;
+    let selectItem=document.getElementById('items')
+   let selectionVal=selectItem.value;
   console.log(selectionVal)
   let quantiItem=document.getElementById('quantity')
   let quantityVal=quantiItem.value;
   console.log(quantityVal)
-  // Cart.addItem (selectionVal,quantityVal)
+  cart.addItem (selectionVal,quantityVal)
 }
 
 // TODO: Update the cart count in the header nav with the number of items in the Cart
@@ -69,8 +68,23 @@ countEl.textContent=counter++;
 // TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
 function updateCartPreview() {
   // TODO: Get the item and quantity from the form
-
+  let selectUpdat=document.getElementById('items')
+   let quantUpdate=document.getElementById('cartContents')
   // TODO: Add a new element to the cartContents div with that information
+  let newElAdd= document.createElement('ul')
+  cartContents.appendChild(newElAdd)
+
+  let liElAdd=document.createElement('li');
+  newElAdd.appendChild(liElAdd)
+
+  let selectItem2=document.getElementById('items')
+   let selectionVal2=selectItem2.value;
+  // console.log(selectionVal)
+  let quantiItem2=document.getElementById('quantity')
+  let quantityVal2=quantiItem2.value;
+  // console.log(quantityVal)
+ liElAdd.textContent=`You select this item ${selectionVal2}, ${quantityVal2}` 
+  
 
 
 }
