@@ -7,8 +7,13 @@ table.addEventListener('click', removeItemFromCart);
 let cart;
 
 function loadCart() {
-  const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-  cart = new Cart(cartItems);
+  const cartItems = JSON.parse(localStorage.getItem('customerChart')) || [];
+  
+cart = new Cart(cartItems);
+  if (cartItems !== null){
+    for(let i=0 ;i<cartItems.length; i++)
+    new CartItem(cartItems[i].product,cartItems[i].quantity)
+  }
 }
 
 // Make magic happen --- re-pull the Cart, clear out the screen and re-draw it
